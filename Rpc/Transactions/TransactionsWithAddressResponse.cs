@@ -1,12 +1,22 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text.Json;
+using HushEcosystem.Model.Blockchain;
 
 namespace HushEcosystem.Model.Rpc.Transactions;
 
-public class TransactionsWithAddressResponse
+public class TransactionsWithAddressResponse : CommandResponseBase
 {
-    // public ReadOnlyCollection<TransactionBase> MyProperty { get; set; }    
+    public static string CommandCode = "TransactionsWithAddressResponse";
+
+    public ReadOnlyCollection<TransactionBase> Transactions { get; set; }
+
+    public TransactionsWithAddressResponse()
+    {
+        this.Command = CommandCode;
+    }
+
+    public override string ToJson()
+    {
+        return JsonSerializer.Serialize(this);
+    }
 }

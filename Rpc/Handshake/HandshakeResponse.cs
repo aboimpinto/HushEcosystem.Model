@@ -2,13 +2,13 @@ using System.Text.Json;
 
 namespace HushEcosystem.Model.Rpc.Handshake;
 
-public class HandshakeResponse : CommandBase
+public class HandshakeResponse : CommandResponseBase
 {
     public static string CommandCode = "HandshakeResponse";
 
-    public bool Result { get; set; }
+    // public bool Result { get; set; }
 
-    public string FailureReason { get; set; } = string.Empty;
+    // public string FailureReason { get; set; } = string.Empty;
 
     public HandshakeResponse()
     {
