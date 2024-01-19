@@ -8,7 +8,7 @@ public class TransactionsWithAddressResponse : CommandResponseBase
 {
     public static string CommandCode = "TransactionsWithAddressResponse";
 
-    public ReadOnlyCollection<TransactionBase> Transactions { get; set; }
+    public IList<TransactionBase> Transactions { get; set; }
 
     public TransactionsWithAddressResponse()
     {

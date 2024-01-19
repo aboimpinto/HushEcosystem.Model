@@ -1,17 +1,17 @@
 using System.Text.Json;
-using System.Text.Json.Serialization.Metadata;
 using HushEcosystem.Model.Rpc.GlobalEvents;
 using HushEcosystem.Model.Rpc.Transactions;
 using Olimpo;
 
 namespace HushEcosystem.Model.Rpc.CommandDeserializeStrategies;
 
-public class TransationsWithAddressRequestDeserializeStrategy : ICommandDeserializeStrategy
+public class TransactionsWithAddressResponseDeserializeStrategy : ICommandDeserializeStrategy
 {
     private readonly IEventAggregator _eventAggregator;
+
     private readonly TransactionBaseConverter _transactionBaseConverter;
 
-    public TransationsWithAddressRequestDeserializeStrategy(
+    public TransactionsWithAddressResponseDeserializeStrategy(
         TransactionBaseConverter transactionBaseConverter,
         IEventAggregator eventAggregator)
     {
@@ -26,7 +26,7 @@ public class TransationsWithAddressRequestDeserializeStrategy : ICommandDeserial
             var element = jsonDocument.RootElement;
             var command = element.GetProperty("Command").GetString();
 
-            if (command == TransationsWithAddressRequest.CommandCode)
+            if (command == TransactionsWithAddressResponse.CommandCode)
             {
                 return true;
             }
@@ -37,18 +37,25 @@ public class TransationsWithAddressRequestDeserializeStrategy : ICommandDeserial
 
     public async Task Handle(string commandJson, string channelId)
     {
-        var jsonOptions = new JsonSerializerOptions
+        try
         {
-            Converters = { this._transactionBaseConverter }
-        };
+            var jsonOptions = new JsonSerializerOptions
+            {
+                Converters = { this._transactionBaseConverter }
+            };
 
-        var handshakeResponse = JsonSerializer.Deserialize<TransationsWithAddressRequest>(commandJson, jsonOptions);
+            var command = JsonSerializer.Deserialize<TransactionsWithAddressResponse>(commandJson, jsonOptions);
 
-        if (handshakeResponse == null)
-        {
-            throw new InvalidOperationException($"Cannot deserialize the TransationsWithAddressRequest command: {commandJson}");
+            if (command == null)
+            {
+                throw new InvalidOperationException($"Cannot deserialize the TransactionsWithAddressResponse command: {commandJson}");
+            }
+
+            await this._eventAggregator.PublishAsync(new TransactionsWithAddressResponseEvent(channelId, command));
         }
-
-        await this._eventAggregator.PublishAsync(new TransationsWithAddressRequestedEvent(channelId, handshakeResponse));
+        catch(Exception ex)
+        {
+            int i = 0;
+        }
     }
 }

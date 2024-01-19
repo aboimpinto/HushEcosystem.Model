@@ -4,17 +4,22 @@ namespace HushEcosystem.Model.Blockchain;
 
 public abstract class TransactionBase : ITransaction
 {
-    public string TransactionId { get; } = string.Empty;
+    public string TransactionId { get; set; } = string.Empty;
 
-    public string Type { get; } = string.Empty;
+    public string Type { get; set; } = string.Empty;
 
-    public string BlockId { get; } = string.Empty;
+    public string BlockId { get; set; } = string.Empty;
 
-    public double BlockHeight { get; }
+    public double BlockHeight { get; set; }
 
-    public string Issuer { get; } = string.Empty;
+    public string Issuer { get; set; } = string.Empty;
 
     public string Signature { get; set; } = string.Empty;
+
+    public TransactionBase()
+    {
+        
+    }
 
     public TransactionBase(string transactionType, string blockId, string transactionIssuer, double blockHeight)
     {

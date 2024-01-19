@@ -17,7 +17,7 @@ namespace HushEcosystem.Model.Rpc.Transactions
         {
             return new TransactionsWithAddressResponse
             {
-                Transactions = new System.Collections.ObjectModel.ReadOnlyCollection<TransactionBase>(this._transactions)
+                Transactions = this._transactions
             };
         }
     }
