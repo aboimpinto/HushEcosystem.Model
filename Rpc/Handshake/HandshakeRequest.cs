@@ -4,7 +4,7 @@ namespace HushEcosystem.Model.Rpc.Handshake;
 
 public class HandshakeRequest : CommandRequestBase
 {
-    public static string CommandCode = "HandshakeRequest";
+    public static string CommandCode = "e06a8bb3-71d3-47d6-9bdd-c6a8135ed977";
 
     public ClientType ClientType { get; set; }
 
