@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace HushEcosystem.Model.Rpc.Transactions
 {
-    public class TransationsWithAddressRequest : CommandBase
+    public class TransationsWithAddressRequest : CommandRequestBase
     {
         public static string CommandCode = "TransationsWithAddressRequest";
 

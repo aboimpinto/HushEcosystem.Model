@@ -1,6 +1,6 @@
 ﻿namespace HushEcosystem.Model.Rpc;
 
-public abstract class CommandBase
+public abstract class CommandRequestBase
 {
     public string Command { get; set; } = string.Empty;
 

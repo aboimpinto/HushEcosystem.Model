@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace HushEcosystem.Model.Rpc.Handshake;
 
-public class HandshakeRequest : CommandBase
+public class HandshakeRequest : CommandRequestBase
 {
     public static string CommandCode = "HandshakeRequest";
 
