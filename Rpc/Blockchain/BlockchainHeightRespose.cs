@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace HushEcosystem.Model.Rpc.GlobalEvents.Blockchain
+namespace HushEcosystem.Model.Rpc.Blockchain
 {
     public class BlockchainHeightRespose : CommandResponseBase
     {
