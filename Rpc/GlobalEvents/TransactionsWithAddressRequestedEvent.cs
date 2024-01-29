@@ -2,13 +2,13 @@ using HushEcosystem.Model.Rpc.Transactions;
 
 namespace HushEcosystem.Model.Rpc.GlobalEvents;
 
-public class TransationsWithAddressRequestedEvent
+public class TransactionsWithAddressRequestedEvent
 {
     public string ChannelId { get; } = string.Empty;
 
-    public TransationsWithAddressRequest TransationsWithAddressRequest { get; }
+    public TransactionsWithAddressRequest TransationsWithAddressRequest { get; }
 
-    public TransationsWithAddressRequestedEvent(string channerId, TransationsWithAddressRequest transationsWithAddressRequest)
+    public TransactionsWithAddressRequestedEvent(string channerId, TransactionsWithAddressRequest transationsWithAddressRequest)
     {
         this.ChannelId = channerId;
         this.TransationsWithAddressRequest = transationsWithAddressRequest;

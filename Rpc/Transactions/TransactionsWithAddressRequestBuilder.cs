@@ -19,9 +19,9 @@ namespace HushEcosystem.Model.Rpc.Transactions
             return this;
         }
 
-        public TransationsWithAddressRequest Build()
+        public TransactionsWithAddressRequest Build()
         {
-            return new TransationsWithAddressRequest
+            return new TransactionsWithAddressRequest
             {
                 Address = this._address,
                 LastHeightSynched = this._lastHeightSynched

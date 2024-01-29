@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace HushEcosystem.Model.Rpc.Transactions
 {
-    public class TransationsWithAddressRequest : CommandRequestBase
+    public class TransactionsWithAddressRequest : CommandRequestBase
     {
         public static string CommandCode = "42507fc0-6b96-43a2-94a1-5ec8bf0fa5b5";
 
@@ -10,7 +10,7 @@ namespace HushEcosystem.Model.Rpc.Transactions
 
         public int LastHeightSynched { get; set; }
 
-        public TransationsWithAddressRequest()
+        public TransactionsWithAddressRequest()
         {
             this.Command = CommandCode;
         }

@@ -26,7 +26,7 @@ public class TransationsWithAddressRequestDeserializeStrategy : ICommandDeserial
             var element = jsonDocument.RootElement;
             var command = element.GetProperty("Command").GetString();
 
-            if (command == TransationsWithAddressRequest.CommandCode)
+            if (command == TransactionsWithAddressRequest.CommandCode)
             {
                 return true;
             }
@@ -42,13 +42,13 @@ public class TransationsWithAddressRequestDeserializeStrategy : ICommandDeserial
             Converters = { this._transactionBaseConverter }
         };
 
-        var handshakeResponse = JsonSerializer.Deserialize<TransationsWithAddressRequest>(commandJson, jsonOptions);
+        var handshakeResponse = JsonSerializer.Deserialize<TransactionsWithAddressRequest>(commandJson, jsonOptions);
 
         if (handshakeResponse == null)
         {
             throw new InvalidOperationException($"Cannot deserialize the TransationsWithAddressRequest command: {commandJson}");
         }
 
-        await this._eventAggregator.PublishAsync(new TransationsWithAddressRequestedEvent(channelId, handshakeResponse));
+        await this._eventAggregator.PublishAsync(new TransactionsWithAddressRequestedEvent(channelId, handshakeResponse));
     }
 }
