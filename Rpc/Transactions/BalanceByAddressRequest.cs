@@ -1,0 +1,20 @@
+using System.Text.Json;
+
+namespace HushEcosystem.Model.Rpc.Transactions;
+
+public class BalanceByAddressRequest : CommandRequestBase
+{
+    public static string CommandCode = "84a1d2e9-3093-4a96-92cc-0e362fb03ab7";
+
+    public string Address { get; set; } = string.Empty;
+
+    public BalanceByAddressRequest()
+    {
+        this.Command = CommandCode;
+    }
+
+    public override string ToJson()
+    {
+        return JsonSerializer.Serialize(this);
+    }
+}
