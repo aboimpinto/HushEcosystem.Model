@@ -1,17 +1,16 @@
 using System.Text.Json;
-using System.Text.Json.Serialization.Metadata;
 using HushEcosystem.Model.Rpc.GlobalEvents;
 using HushEcosystem.Model.Rpc.Transactions;
 using Olimpo;
 
 namespace HushEcosystem.Model.Rpc.CommandDeserializeStrategies;
 
-public class TransationsWithAddressRequestDeserializeStrategy : ICommandDeserializeStrategy
+public class TransactionsWithAddressRequestDeserializeStrategy : ICommandDeserializeStrategy
 {
     private readonly IEventAggregator _eventAggregator;
     private readonly TransactionBaseConverter _transactionBaseConverter;
 
-    public TransationsWithAddressRequestDeserializeStrategy(
+    public TransactionsWithAddressRequestDeserializeStrategy(
         TransactionBaseConverter transactionBaseConverter,
         IEventAggregator eventAggregator)
     {

@@ -37,7 +37,7 @@ public static class RpcModelHostBuilder
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, BlockchainHeightRequestDeserializeStategy>();
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, BlockchainHeightResponseDeserializeStategy>();
 
-        serviceCollection.AddSingleton<ICommandDeserializeStrategy, TransationsWithAddressRequestDeserializeStrategy>();
+        serviceCollection.AddSingleton<ICommandDeserializeStrategy, TransactionsWithAddressRequestDeserializeStrategy>();
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, TransactionsWithAddressResponseDeserializeStrategy>();
     }
 }
