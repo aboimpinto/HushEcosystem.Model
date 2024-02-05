@@ -5,13 +5,13 @@ using Olimpo;
 
 namespace HushEcosystem.Model.Rpc.CommandDeserializeStrategies;
 
-public class TransactionsWithAddressResponseDeserializeStrategy : ICommandDeserializeStrategy
+public class TransactionsWithAddressRespondedDeserializeStrategy : ICommandDeserializeStrategy
 {
     private readonly IEventAggregator _eventAggregator;
 
     private readonly TransactionBaseConverter _transactionBaseConverter;
 
-    public TransactionsWithAddressResponseDeserializeStrategy(
+    public TransactionsWithAddressRespondedDeserializeStrategy(
         TransactionBaseConverter transactionBaseConverter,
         IEventAggregator eventAggregator)
     {
@@ -51,7 +51,7 @@ public class TransactionsWithAddressResponseDeserializeStrategy : ICommandDeseri
                 throw new InvalidOperationException($"Cannot deserialize the TransactionsWithAddressResponse command: {commandJson}");
             }
 
-            await this._eventAggregator.PublishAsync(new TransactionsWithAddressResponseEvent(channelId, command));
+            await this._eventAggregator.PublishAsync(new TransactionsWithAddressRespondedEvent(channelId, command));
         }
         catch(Exception ex)
         {

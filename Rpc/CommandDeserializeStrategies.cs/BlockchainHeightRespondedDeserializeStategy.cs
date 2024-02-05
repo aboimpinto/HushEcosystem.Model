@@ -5,11 +5,11 @@ using Olimpo;
 
 namespace HushEcosystem.Model.Rpc.CommandDeserializeStrategies;
 
-public class BlockchainHeightResponseDeserializeStategy : ICommandDeserializeStrategy
+public class BlockchainHeightRespondedDeserializeStategy : ICommandDeserializeStrategy
 {
     private readonly IEventAggregator _eventAggregator;
 
-    public BlockchainHeightResponseDeserializeStategy(IEventAggregator eventAggregator)
+    public BlockchainHeightRespondedDeserializeStategy(IEventAggregator eventAggregator)
     {
         this._eventAggregator = eventAggregator;
     }
@@ -39,6 +39,6 @@ public class BlockchainHeightResponseDeserializeStategy : ICommandDeserializeStr
             throw new InvalidOperationException($"Cannot deserialize the BlockchainHeightResponse command: {commandJson}");
         }
 
-        await this._eventAggregator.PublishAsync(new BlockchainHeightResponseEvent(channelId, command));
+        await this._eventAggregator.PublishAsync(new BlockchainHeightRespondedEvent(channelId, command));
     }
 }

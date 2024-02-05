@@ -32,12 +32,12 @@ public static class RpcModelHostBuilder
         serviceCollection.AddTransient<ISpecificTransactionDeserializer, BlockCreationTransactionDeserializer>();
 
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, HandshakeRequestDeserializeStrategy>();
-        serviceCollection.AddSingleton<ICommandDeserializeStrategy, HandshakeResponseDeserializeStrategy>();
+        serviceCollection.AddSingleton<ICommandDeserializeStrategy, HandshakeRespondedDeserializeStrategy>();
 
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, BlockchainHeightRequestDeserializeStategy>();
-        serviceCollection.AddSingleton<ICommandDeserializeStrategy, BlockchainHeightResponseDeserializeStategy>();
+        serviceCollection.AddSingleton<ICommandDeserializeStrategy, BlockchainHeightRespondedDeserializeStategy>();
 
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, TransactionsWithAddressRequestDeserializeStrategy>();
-        serviceCollection.AddSingleton<ICommandDeserializeStrategy, TransactionsWithAddressResponseDeserializeStrategy>();
+        serviceCollection.AddSingleton<ICommandDeserializeStrategy, TransactionsWithAddressRespondedDeserializeStrategy>();
     }
 }

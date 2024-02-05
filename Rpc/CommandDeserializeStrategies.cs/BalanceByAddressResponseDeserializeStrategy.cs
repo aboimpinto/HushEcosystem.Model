@@ -1,15 +1,16 @@
+using System;
 using System.Text.Json;
-using HushEcosystem.Model.Rpc.Blockchain;
 using HushEcosystem.Model.Rpc.GlobalEvents;
+using HushEcosystem.Model.Rpc.Transactions;
 using Olimpo;
 
-namespace HushEcosystem.Model.Rpc.CommandDeserializeStrategies;
+namespace HushEcosystem.Model.Rpc.CommandDeserializeStrategies.cs;
 
-public class BlockchainHeightRequestDeserializeStategy : ICommandDeserializeStrategy
+public class BalanceByAddressResponseDeserializeStrategy : ICommandDeserializeStrategy
 {
     private readonly IEventAggregator _eventAggregator;
 
-    public BlockchainHeightRequestDeserializeStategy(IEventAggregator eventAggregator)
+    public BalanceByAddressResponseDeserializeStrategy(IEventAggregator eventAggregator)
     {
         this._eventAggregator = eventAggregator;
     }
@@ -21,7 +22,7 @@ public class BlockchainHeightRequestDeserializeStategy : ICommandDeserializeStra
             var element = jsonDocument.RootElement;
             var command = element.GetProperty("Command").GetString();
 
-            if (command == BlockchainHeightRequest.CommandCode)
+            if (command == BalanceByAddressResponse.CommandCode)
             {
                 return true;
             }
@@ -32,13 +33,13 @@ public class BlockchainHeightRequestDeserializeStategy : ICommandDeserializeStra
 
     public async Task Handle(string commandJson, string channelId)
     {
-        var command = JsonSerializer.Deserialize<BlockchainHeightRequest>(commandJson);
+        var command = JsonSerializer.Deserialize<BalanceByAddressResponse>(commandJson);
 
         if (command == null)
         {
-            throw new InvalidOperationException($"Cannot deserialize the BlockchainHeightRequest command: {commandJson}");
+            throw new InvalidOperationException($"Cannot deserialize the BalanceByAddressResponse command: {commandJson}");
         }
 
-        await this._eventAggregator.PublishAsync(new BlockchainHeightRequestedEvent(channelId, command));
+        await this._eventAggregator.PublishAsync(new BalanceByAddressRespondedEvent(channelId, command));
     }
 }
