@@ -4,7 +4,7 @@ using HushEcosystem.Model.Rpc.GlobalEvents;
 using HushEcosystem.Model.Rpc.Transactions;
 using Olimpo;
 
-namespace HushEcosystem.Model.Rpc.CommandDeserializeStrategies.cs;
+namespace HushEcosystem.Model.Rpc.CommandDeserializeStrategies;
 
 public class BalanceByAddressResponseDeserializeStrategy : ICommandDeserializeStrategy
 {

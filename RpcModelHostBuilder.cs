@@ -39,5 +39,8 @@ public static class RpcModelHostBuilder
 
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, TransactionsWithAddressRequestDeserializeStrategy>();
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, TransactionsWithAddressRespondedDeserializeStrategy>();
+
+        serviceCollection.AddSingleton<ICommandDeserializeStrategy, BalanceByAddressRequestDeserializeStrategy>();
+        serviceCollection.AddSingleton<ICommandDeserializeStrategy, BalanceByAddressResponseDeserializeStrategy>();
     }
 }
