@@ -1,12 +1,8 @@
-namespace HushEcosystem.Model.Blockchain;
+// namespace HushEcosystem.Model.Blockchain;
 
-public interface ITransaction: ISignable
-{
-    string TransactionId { get; }
+// public interface ITransaction: ISignable, IHashable
+// {
+//     string TransactionId { get; }
 
-    string Type { get; }
-
-    string BlockId { get; }
-
-    string Issuer { get; }
-}
+//     string Issuer { get; set; }
+// }

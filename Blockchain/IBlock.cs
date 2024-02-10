@@ -6,7 +6,7 @@ public interface IBlock : ISignable
 
     string TimeStamp { get; }
     
-    IEnumerable<TransactionBase> Transactions { get; set; }             // TODO [AboimPinto]: this should be ReadOnly
+    IList<VerifiedTransaction> Transactions { get; set; }             // TODO [AboimPinto]: this should be ReadOnly
     
     double Index { get; }    
     

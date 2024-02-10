@@ -24,14 +24,12 @@ public class TransactionBaseConverter : JsonConverter<TransactionBase>
             var transactionType = element.GetProperty("Type").GetString();
 
             var specificDeserializer = this._transactionDeserializer.SingleOrDefault(x => x.CanHandle(transactionType));
-            return specificDeserializer.Handle(element.GetRawText());
+            if (specificDeserializer != null)
+            {
+                return specificDeserializer.Handle(element.GetRawText());
+            }
 
-
-            // if (transactionType == 1)
-            
-            // {
-            //     return JsonSerializer.Deserialize<BlockCreationTransaction>(element.GetRawText());
-            // }
+            throw new InvalidOperationException("No specific deserializer found for the transaction type.");
         }
 
         throw new NotImplementedException();
@@ -41,5 +39,4 @@ public class TransactionBaseConverter : JsonConverter<TransactionBase>
     {
         JsonSerializer.Serialize(writer, value, value.GetType(), options);
     }
-    
 }

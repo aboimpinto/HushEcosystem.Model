@@ -8,7 +8,7 @@ public class Block: IBlock
 
     public string TimeStamp { get; } = string.Empty;
 
-    public IEnumerable<TransactionBase> Transactions { get; set; }
+    public IList<VerifiedTransaction> Transactions { get; set; }
 
     public double Index { get; }
 
@@ -22,7 +22,7 @@ public class Block: IBlock
 
     public Block(string blockId, string previousBlockId, string nextBlockId, double index)
     {
-        this.Transactions = new List<TransactionBase>();
+        this.Transactions = new List<VerifiedTransaction>();
 
         this.TimeStamp = DateTime.UtcNow.ToString();
 
