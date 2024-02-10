@@ -1,19 +1,23 @@
 using System.Text.Json;
 
-namespace HushEcosystem.Model.Rpc.Blockchain
+namespace HushEcosystem.Model.Rpc.Blockchain;
+
+public class BlockchainHeightRequest : CommandRequestBase
 {
-    public class BlockchainHeightRequest : CommandRequestBase
+    public static string CommandCode = "0ac82128-9c9e-4089-aeaa-6db63b3aef22";
+
+    public BlockchainHeightRequest()
     {
-        public static string CommandCode = "0ac82128-9c9e-4089-aeaa-6db63b3aef22";
+        this.Command = CommandCode;
+    }
 
-        public BlockchainHeightRequest()
+    public override string ToJson(TransactionBaseConverter options)
+    {
+        var jsonOptions = new JsonSerializerOptions
         {
-            this.Command = CommandCode;
-        }
+            Converters = { options }
+        };
 
-        public override string ToJson()
-        {
-            return JsonSerializer.Serialize(this);
-        }
+        return JsonSerializer.Serialize(this, jsonOptions);
     }
 }

@@ -4,11 +4,11 @@ namespace HushEcosystem.Model.Rpc.Transactions
 {
     public class TransactionsWithAddressResponseBuilder
     {
-        private IList<TransactionBase> _transactions = new List<TransactionBase>();
+        private IList<VerifiedTransaction> _transactions = new List<VerifiedTransaction>();
 
-        public TransactionsWithAddressResponseBuilder WithTransactions(IEnumerable<TransactionBase> transactions)
+        public TransactionsWithAddressResponseBuilder WithTransactions(IEnumerable<VerifiedTransaction> transactions)
         {
-            this._transactions = new List<TransactionBase>(transactions);
+            this._transactions = new List<VerifiedTransaction>(transactions);
 
             return this;
         }

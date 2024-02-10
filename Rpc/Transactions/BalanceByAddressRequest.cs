@@ -13,8 +13,13 @@ public class BalanceByAddressRequest : CommandRequestBase
         this.Command = CommandCode;
     }
 
-    public override string ToJson()
+    public override string ToJson(TransactionBaseConverter options)
     {
-        return JsonSerializer.Serialize(this);
+        var jsonOptions = new JsonSerializerOptions
+        {
+            Converters = { options }
+        };
+
+        return JsonSerializer.Serialize(this, jsonOptions);
     }
 }

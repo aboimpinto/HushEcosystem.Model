@@ -1,23 +1,27 @@
 using System.Text.Json;
 
-namespace HushEcosystem.Model.Rpc.Transactions
+namespace HushEcosystem.Model.Rpc.Transactions;
+
+public class TransactionsWithAddressRequest : CommandRequestBase
 {
-    public class TransactionsWithAddressRequest : CommandRequestBase
+    public static string CommandCode = "42507fc0-6b96-43a2-94a1-5ec8bf0fa5b5";
+
+    public string Address { get; set; } = string.Empty;
+
+    public int LastHeightSynched { get; set; }
+
+    public TransactionsWithAddressRequest()
     {
-        public static string CommandCode = "42507fc0-6b96-43a2-94a1-5ec8bf0fa5b5";
+        this.Command = CommandCode;
+    }
 
-        public string Address { get; set; } = string.Empty;
-
-        public int LastHeightSynched { get; set; }
-
-        public TransactionsWithAddressRequest()
+    public override string ToJson(TransactionBaseConverter options)
+    {
+        var jsonOptions = new JsonSerializerOptions
         {
-            this.Command = CommandCode;
-        }
+            Converters = { options }
+        };
 
-        public override string ToJson()
-        {
-            return JsonSerializer.Serialize(this);
-        }
+        return JsonSerializer.Serialize(this, jsonOptions);
     }
 }
