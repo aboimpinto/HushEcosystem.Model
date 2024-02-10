@@ -16,10 +16,8 @@ public class BlockCreationTransactionDeserializer : ISpecificTransactionDeserial
 
     public TransactionBase Handle(string rawText)
     {
-        throw new NotImplementedException();
+        var transaction = JsonSerializer.Deserialize<BlockCreationTransaction>(rawText);
 
-        // var transaction = JsonSerializer.Deserialize<BlockCreationTransaction>(rawText);
-
-        // return transaction;
+        return transaction;
     }
 }

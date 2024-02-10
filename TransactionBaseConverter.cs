@@ -21,9 +21,9 @@ public class TransactionBaseConverter : JsonConverter<TransactionBase>
         using (var jsonDocument = JsonDocument.ParseValue(ref reader))
         {
             var element = jsonDocument.RootElement;
-            var transactionType = element.GetProperty("Type").GetString();
+            var transactionType = element.GetProperty("TransactionId").GetString();
 
-            var specificDeserializer = this._transactionDeserializer.SingleOrDefault(x => x.CanHandle(transactionType));
+            var specificDeserializer = this._transactionDeserializer.SingleOrDefault(x => x.CanHandle(transactionType!));
             if (specificDeserializer != null)
             {
                 return specificDeserializer.Handle(element.GetRawText());
