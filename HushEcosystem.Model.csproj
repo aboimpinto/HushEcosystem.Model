@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Olimpo.EventAggregatorManager\EventAggregatorManager.csproj" />
+    <ProjectReference Include="..\Olimpo.SigningManager\SigningManager.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
