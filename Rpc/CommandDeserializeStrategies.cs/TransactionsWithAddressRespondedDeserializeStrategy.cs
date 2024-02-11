@@ -37,25 +37,18 @@ public class TransactionsWithAddressRespondedDeserializeStrategy : ICommandDeser
 
     public async Task Handle(string commandJson, string channelId)
     {
-        try
+        var jsonOptions = new JsonSerializerOptions
         {
-            var jsonOptions = new JsonSerializerOptions
-            {
-                Converters = { this._transactionBaseConverter }
-            };
+            Converters = { this._transactionBaseConverter }
+        };
 
-            var command = JsonSerializer.Deserialize<TransactionsWithAddressResponse>(commandJson, jsonOptions);
+        var command = JsonSerializer.Deserialize<TransactionsWithAddressResponse>(commandJson, jsonOptions);
 
-            if (command == null)
-            {
-                throw new InvalidOperationException($"Cannot deserialize the TransactionsWithAddressResponse command: {commandJson}");
-            }
-
-            await this._eventAggregator.PublishAsync(new TransactionsWithAddressRespondedEvent(channelId, command));
-        }
-        catch(Exception ex)
+        if (command == null)
         {
-            int i = 0;
+            throw new InvalidOperationException($"Cannot deserialize the TransactionsWithAddressResponse command: {commandJson}");
         }
+
+        await this._eventAggregator.PublishAsync(new TransactionsWithAddressRespondedEvent(channelId, command));
     }
 }
