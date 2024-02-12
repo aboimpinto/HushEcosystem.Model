@@ -42,13 +42,20 @@ public class TransactionsWithAddressRespondedDeserializeStrategy : ICommandDeser
             Converters = { this._transactionBaseConverter }
         };
 
-        var command = JsonSerializer.Deserialize<TransactionsWithAddressResponse>(commandJson, jsonOptions);
-
-        if (command == null)
+        try
         {
-            throw new InvalidOperationException($"Cannot deserialize the TransactionsWithAddressResponse command: {commandJson}");
-        }
+            var command = JsonSerializer.Deserialize<TransactionsWithAddressResponse>(commandJson, jsonOptions);
 
-        await this._eventAggregator.PublishAsync(new TransactionsWithAddressRespondedEvent(channelId, command));
+            if (command == null)
+            {
+                throw new InvalidOperationException($"Cannot deserialize the TransactionsWithAddressResponse command: {commandJson}");
+            }
+
+            await this._eventAggregator.PublishAsync(new TransactionsWithAddressRespondedEvent(channelId, command));    
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
     }
 }
