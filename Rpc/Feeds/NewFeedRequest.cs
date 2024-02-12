@@ -14,13 +14,8 @@ public class NewFeedRequest : CommandRequestBase
         this.Command = CommandCode;
     }
 
-    public override string ToJson(TransactionBaseConverter options)
+    public override string ToJson(JsonSerializerOptions options)
     {
-        var jsonOptions = new JsonSerializerOptions
-        {
-            Converters = { options }
-        };
-
-        return JsonSerializer.Serialize(this, jsonOptions);
+        return JsonSerializer.Serialize(this, options);
     }
 }
