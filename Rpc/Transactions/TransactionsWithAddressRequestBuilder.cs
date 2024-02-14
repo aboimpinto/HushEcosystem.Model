@@ -3,7 +3,7 @@ namespace HushEcosystem.Model.Rpc.Transactions
     public class TransationsWithAddressRequestBuilder
     {
         private string _address = string.Empty;
-        private int _lastHeightSynched;
+        private double _lastHeightSynched;
 
         public TransationsWithAddressRequestBuilder WithAddress(string address)
         {
@@ -12,7 +12,7 @@ namespace HushEcosystem.Model.Rpc.Transactions
             return this;
         }
 
-        public TransationsWithAddressRequestBuilder WithLastHeightSynched(int lastHeightSynched)
+        public TransationsWithAddressRequestBuilder WithLastHeightSynched(double lastHeightSynched)
         {
             this._lastHeightSynched = lastHeightSynched;
 

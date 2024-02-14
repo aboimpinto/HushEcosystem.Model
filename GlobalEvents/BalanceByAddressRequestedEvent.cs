@@ -1,7 +1,6 @@
-using HushEcosystem.Model.Rpc.Blockchain;
 using HushEcosystem.Model.Rpc.Transactions;
 
-namespace HushEcosystem.Model.Rpc.GlobalEvents;
+namespace HushEcosystem.Model.GlobalEvents;
 
 public class BalanceByAddressRequestedEvent
 {

@@ -8,7 +8,7 @@ public class TransactionsWithAddressRequest : CommandRequestBase
 
     public string Address { get; set; } = string.Empty;
 
-    public int LastHeightSynched { get; set; }
+    public double LastHeightSynched { get; set; }
 
     public TransactionsWithAddressRequest()
     {

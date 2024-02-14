@@ -1,6 +1,6 @@
 using HushEcosystem.Model.Rpc.Feeds;
 
-namespace HushEcosystem.Model.Rpc.GlobalEvents;
+namespace HushEcosystem.Model.GlobalEvents;
 
 public class NewFeedRequestedEvent
 {

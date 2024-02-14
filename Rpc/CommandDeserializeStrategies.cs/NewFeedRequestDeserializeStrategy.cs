@@ -1,6 +1,6 @@
 using System.Text.Json;
+using HushEcosystem.Model.GlobalEvents;
 using HushEcosystem.Model.Rpc.Feeds;
-using HushEcosystem.Model.Rpc.GlobalEvents;
 using Olimpo;
 
 namespace HushEcosystem.Model.Rpc.CommandDeserializeStrategies;

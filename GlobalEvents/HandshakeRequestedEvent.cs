@@ -1,6 +1,6 @@
 using HushEcosystem.Model.Rpc.Handshake;
 
-namespace HushEcosystem.Model.Rpc.GlobalEvents;
+namespace HushEcosystem.Model.GlobalEvents;
 
 public class HandshakeRequestedEvent
 {

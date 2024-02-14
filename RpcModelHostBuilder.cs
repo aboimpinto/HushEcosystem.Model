@@ -3,6 +3,7 @@ using HushEcosystem.Model.Rpc.CommandDeserializeStrategies;
 using HushEcosystem.Model.Blockchain.TransactionConvertersStrategies;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using HushEcosystem.Model.Blockchain.TransactionHandlerStrategies;
 
 namespace HushEcosystem;
 
@@ -28,6 +29,8 @@ public static class RpcModelHostBuilder
     private static void Register(IServiceCollection serviceCollection)
     {
         serviceCollection.AddTransient<TransactionBaseConverter>();
+
+        serviceCollection.AddTransient<ITransactionHandlerStrategy, FeedTransactionHandlerStrategy>();
 
         serviceCollection.AddTransient<ISpecificTransactionDeserializer, BlockCreationTransactionDeserializer>();
         serviceCollection.AddTransient<ISpecificTransactionDeserializer, FeedTransactionDeserializerStrategy>();

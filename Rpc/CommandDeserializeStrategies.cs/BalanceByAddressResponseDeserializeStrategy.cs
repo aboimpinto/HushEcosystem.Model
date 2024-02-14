@@ -1,6 +1,5 @@
-using System;
 using System.Text.Json;
-using HushEcosystem.Model.Rpc.GlobalEvents;
+using HushEcosystem.Model.GlobalEvents;
 using HushEcosystem.Model.Rpc.Transactions;
 using Olimpo;
 
