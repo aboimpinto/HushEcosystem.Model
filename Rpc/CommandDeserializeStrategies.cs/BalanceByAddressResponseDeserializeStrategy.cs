@@ -16,6 +16,11 @@ public class BalanceByAddressResponseDeserializeStrategy : ICommandDeserializeSt
 
     public bool CanHandle(string commandJson)
     {
+        if (string.IsNullOrWhiteSpace(commandJson))
+        {
+            return false;
+        }
+
         using (var jsonDocument = JsonDocument.Parse(commandJson))
         {
             var element = jsonDocument.RootElement;
