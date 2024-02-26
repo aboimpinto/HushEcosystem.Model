@@ -1,19 +1,14 @@
 using System.Text.Json;
 
-namespace HushEcosystem.Model.Rpc.Feeds;
+namespace HushEcosystem.Model.Blockchain;
 
-public class SendMessageRequest : CommandRequestBase
+public class FeedMessage : TransactionBase
 {
-    public static string CommandCode = "f3e3e3e3-842f-42ca-a2c4-3409f75a17b8";
+    public static string TypeCode = "b6d58f59-c736-4c10-8e76-246e5c1181d0";
 
     public string FeedId { get; set; } = string.Empty;
 
     public string Message { get; set; } = string.Empty;
-
-    public SendMessageRequest()
-    {
-        this.Command = CommandCode;
-    }
 
     public override string ToJson(JsonSerializerOptions options)
     {
