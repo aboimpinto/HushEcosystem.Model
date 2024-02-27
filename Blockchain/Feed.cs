@@ -10,6 +10,8 @@ public class Feed : TransactionBase
 
     public FeedTypeEnum FeedType { get; set; }
 
+    public string FeedParticipantPublicAddress { get; set; } = string.Empty;
+
     public string FeedPublicEncriptAddress { get; set; } = string.Empty;
 
     public string FeedPrivateEncriptAddress { get; set; } = string.Empty;

@@ -8,6 +8,7 @@ public class FeedBuilder
     private FeedTypeEnum _feedType;
     private string _publicEncriptAddress = string.Empty;
     private string _privateEncriptAddress = string.Empty;
+    private string _feedParticipantPublicAddress = String.Empty;
 
     public FeedBuilder WithFeedOwner(string feedOwner)
     {
@@ -18,6 +19,12 @@ public class FeedBuilder
     public FeedBuilder WithFeedType(FeedTypeEnum feedType)
     {
         this._feedType = feedType;
+        return this;
+    }
+
+    public FeedBuilder WithFeedParticipantPublicAddress(string feedParticipantPublicAddress)
+    {
+        this._feedParticipantPublicAddress = feedParticipantPublicAddress;
         return this;
     }
 
@@ -39,6 +46,7 @@ public class FeedBuilder
         {
             TransactionId = Feed.TypeCode,
             FeedId = Guid.NewGuid().ToString(),
+            FeedParticipantPublicAddress = this._feedParticipantPublicAddress,
             FeedPublicEncriptAddress = this._publicEncriptAddress,
             FeedPrivateEncriptAddress = this._privateEncriptAddress,
             FeedType = this._feedType,
