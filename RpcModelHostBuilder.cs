@@ -31,9 +31,11 @@ public static class RpcModelHostBuilder
         serviceCollection.AddTransient<TransactionBaseConverter>();
 
         serviceCollection.AddTransient<ITransactionHandlerStrategy, FeedTransactionHandlerStrategy>();
+        serviceCollection.AddTransient<ITransactionHandlerStrategy, FeedMessageTransactionHandlerStrategy>();
 
         serviceCollection.AddTransient<ISpecificTransactionDeserializer, BlockCreationTransactionDeserializer>();
         serviceCollection.AddTransient<ISpecificTransactionDeserializer, FeedTransactionDeserializerStrategy>();
+        serviceCollection.AddSingleton<ISpecificTransactionDeserializer, FeedMessageTransactionDeserializerStrategy>();
 
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, HandshakeRequestDeserializeStrategy>();
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, HandshakeRespondedDeserializeStrategy>();
