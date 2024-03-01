@@ -30,6 +30,7 @@ public class FeedMessageBuilder
     {
         return new FeedMessage()
         {
+            FeedMessageId = Guid.NewGuid().ToString(),
             FeedId = this._feedId,
             Message = this._message,
             Issuer = this._issuerPublicAddress,
