@@ -34,7 +34,8 @@ public class FeedMessageBuilder
             FeedId = this._feedId,
             Message = this._message,
             Issuer = this._issuerPublicAddress,
-            TransactionId = FeedMessage.TypeCode
+            TransactionId = FeedMessage.TypeCode,
+            TimeStamp = DateTime.UtcNow
         };
     }    
 }

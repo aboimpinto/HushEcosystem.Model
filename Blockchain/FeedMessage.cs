@@ -12,6 +12,8 @@ public class FeedMessage : TransactionBase
 
     public string Message { get; set; } = string.Empty;
 
+    public DateTime TimeStamp { get; set; }
+
     public override string ToJson(JsonSerializerOptions options)
     {
         return JsonSerializer.Serialize(this, options);
