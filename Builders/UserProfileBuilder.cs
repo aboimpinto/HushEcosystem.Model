@@ -7,6 +7,7 @@ public class UserProfileBuilder
     private string _publicSigningAddress = string.Empty;
     private string _publicEncryptAddress = string.Empty;
     private string _userName = string.Empty;
+    private bool _isPublicProfile;
 
     public UserProfileBuilder WithPublicSigningAddress(string publicSigningAddress)
     {
@@ -28,13 +29,21 @@ public class UserProfileBuilder
         return this;
     }
 
+    public UserProfileBuilder WithIsPublicFlag(bool isPublicProfile)
+    {
+        this._isPublicProfile = isPublicProfile;
+        return this;
+    }
+
     public UserProfile Build()
     {
         return new UserProfile
         {
+            TransactionId = UserProfile.TypeCode,
             UserPublicSigningAddress = this._publicSigningAddress,
             UserPublicEncryptAddress = this._publicEncryptAddress,
-            UserName = string.IsNullOrEmpty(this._userName) ? "Anonymous" : this._userName
+            UserName = string.IsNullOrEmpty(this._userName) ? "Anonymous" : this._userName,
+            IsPublic = this._isPublicProfile
         };
     }
 }

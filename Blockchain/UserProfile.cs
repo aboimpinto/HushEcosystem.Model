@@ -12,6 +12,8 @@ public class UserProfile : TransactionBase
 
     public string UserName { get; set; } = string.Empty;
 
+    public bool IsPublic { get; set; }
+
     public override string ToJson(JsonSerializerOptions options)
     {
         return JsonSerializer.Serialize(this, options);
