@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace HushEcosystem.Model.Blockchain;
 
 public interface IBlock : ISignable

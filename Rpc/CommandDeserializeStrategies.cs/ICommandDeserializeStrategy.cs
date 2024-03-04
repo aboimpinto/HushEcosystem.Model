@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace HushEcosystem.Model.Rpc.CommandDeserializeStrategies;
 
 public interface ICommandDeserializeStrategy

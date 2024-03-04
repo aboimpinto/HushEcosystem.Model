@@ -4,7 +4,7 @@ namespace HushEcosystem.Model.Blockchain;
 
 public class VerifiedTransaction : ISignable, IHashable
 {
-    public required TransactionBase SpecificTransaction { get; set; }
+    public TransactionBase SpecificTransaction { get; set; }
 
     public string ValidatorAddress { get; set; } = string.Empty;
 

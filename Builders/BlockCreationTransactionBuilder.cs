@@ -1,3 +1,4 @@
+using System;
 using HushEcosystem.Model.Blockchain;
 
 namespace HushServerNode.Blockchain.Builders

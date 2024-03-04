@@ -1,3 +1,4 @@
+using System;
 using HushEcosystem.Model.Blockchain;
 
 namespace HushEcosystem.Model.Builders;
@@ -26,16 +27,13 @@ public class FeedMessageBuilder
         return this;
     }
 
-    public FeedMessage Build()
+    public FeedMessage Build() => new FeedMessage()
     {
-        return new FeedMessage()
-        {
-            FeedMessageId = Guid.NewGuid().ToString(),
-            FeedId = this._feedId,
-            Message = this._message,
-            Issuer = this._issuerPublicAddress,
-            TransactionId = FeedMessage.TypeCode,
-            TimeStamp = DateTime.UtcNow
-        };
-    }    
+        FeedMessageId = Guid.NewGuid().ToString(),
+        FeedId = this._feedId,
+        Message = this._message,
+        Issuer = this._issuerPublicAddress,
+        TransactionId = FeedMessage.TypeCode,
+        TimeStamp = DateTime.UtcNow
+    };
 }

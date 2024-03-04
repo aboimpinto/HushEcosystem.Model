@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace HushEcosystem.Model.Blockchain.TransactionHandlerStrategies;
 
 public interface ITransactionHandlerStrategy
