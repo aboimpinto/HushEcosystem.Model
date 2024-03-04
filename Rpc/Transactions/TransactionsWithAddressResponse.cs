@@ -9,6 +9,8 @@ public class TransactionsWithAddressResponse : CommandResponseBase
 
     public IList<VerifiedTransaction>? Transactions { get; set; }
 
+    public double BlockHeightSyncPoint { get; set; }
+
     public TransactionsWithAddressResponse()
     {
         this.Command = CommandCode;
