@@ -53,5 +53,6 @@ public static class RpcModelHostBuilder
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, SendFeedMessageRequestedDeserializeStrategy>();
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, UserProfileRequestedDeserializeStrategy>();
         serviceCollection.AddSingleton<ICommandDeserializeStrategy, SearchAccountByPublicKeyRequestDeserializeStrategy>();
+        serviceCollection.AddSingleton<ICommandDeserializeStrategy, SearchAccountByPublicKeyResponseDeserializeStrategy>();
     }
 }
