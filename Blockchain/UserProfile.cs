@@ -14,6 +14,11 @@ public class UserProfile : TransactionBase
 
     public bool IsPublic { get; set; }
 
+    public UserProfile()
+    {
+        this.TransactionId = TypeCode;
+    }
+
     public override string ToJson(JsonSerializerOptions options)
     {
         return JsonSerializer.Serialize(this, options);
