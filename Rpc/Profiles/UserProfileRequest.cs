@@ -3,7 +3,7 @@ using HushEcosystem.Model.Blockchain;
 
 namespace HushEcosystem.Model.Rpc.Profiles;
 
-public class UserProfileRequest : CommandRequestBase
+public class UserProfileRequest : RpcRequestBase
 {
     public static string CommandCode = "a8f02f80-fa89-4f92-97cb-d8b97dfd3195";
 
@@ -11,7 +11,7 @@ public class UserProfileRequest : CommandRequestBase
 
     public UserProfileRequest()
     {
-        this.Command = CommandCode;
+        this.RPCMethodId = CommandCode;
     }
 
     public override string ToJson(JsonSerializerOptions options)

@@ -4,7 +4,7 @@ using HushEcosystem.Model.Blockchain;
 
 namespace HushEcosystem.Model.Rpc.Transactions;
 
-public class TransactionsWithAddressResponse : CommandResponseBase
+public class TransactionsWithAddressResponse : RpcResponseBase
 {
     public static string CommandCode = "44df817d-d52b-439d-b776-273250dd5207";
 
@@ -14,7 +14,7 @@ public class TransactionsWithAddressResponse : CommandResponseBase
 
     public TransactionsWithAddressResponse()
     {
-        this.Command = CommandCode;
+        this.RPCMethodId = CommandCode;
     }
 
     public override string ToJson(JsonSerializerOptions options)

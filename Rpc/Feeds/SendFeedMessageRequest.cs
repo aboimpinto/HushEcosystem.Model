@@ -3,7 +3,7 @@ using HushEcosystem.Model.Blockchain;
 
 namespace HushEcosystem.Model.Rpc.Feeds;
 
-public class SendFeedMessageRequest : CommandRequestBase
+public class SendFeedMessageRequest : RpcRequestBase
 {
     public static string CommandCode = "f3e3e3e3-842f-42ca-a2c4-3409f75a17b8";
 
@@ -11,7 +11,7 @@ public class SendFeedMessageRequest : CommandRequestBase
 
     public SendFeedMessageRequest()
     {
-        this.Command = CommandCode;
+        this.RPCMethodId = CommandCode;
     }
 
     public override string ToJson(JsonSerializerOptions options)

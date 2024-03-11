@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace HushEcosystem.Model.Rpc.Profiles;
 
-public class SearchAccountByPublicKeyRequest : CommandRequestBase
+public class SearchAccountByPublicKeyRequest : RpcRequestBase
 {
     public static string CommandCode = "c4906520-a72b-4bca-a8f4-44de5e6f69bb";
 
@@ -10,7 +10,7 @@ public class SearchAccountByPublicKeyRequest : CommandRequestBase
 
     public SearchAccountByPublicKeyRequest()
     {
-        this.Command = CommandCode;
+        this.RPCMethodId = CommandCode;
     }
 
     public override string ToJson(JsonSerializerOptions options)

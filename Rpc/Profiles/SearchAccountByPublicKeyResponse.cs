@@ -3,7 +3,7 @@ using HushEcosystem.Model.Blockchain;
 
 namespace HushEcosystem.Model.Rpc.Profiles;
 
-public class SearchAccountByPublicKeyResponse : CommandResponseBase
+public class SearchAccountByPublicKeyResponse : RpcResponseBase
 {
     public static string CommandCode = "f62db5e7-b5bd-4b60-a5f4-51952b23d060";
 
@@ -11,7 +11,7 @@ public class SearchAccountByPublicKeyResponse : CommandResponseBase
 
     public SearchAccountByPublicKeyResponse()
     {
-        this.Command = CommandCode;
+        this.RPCMethodId = CommandCode;
     }
 
     public override string ToJson(JsonSerializerOptions options)

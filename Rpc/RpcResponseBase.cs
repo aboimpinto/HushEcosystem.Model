@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace HushEcosystem.Model.Rpc;
 
-public abstract class CommandResponseBase : CommandRequestBase
+public abstract class RpcResponseBase : RpcRequestBase
 {
     public bool Result { get; set; }
 

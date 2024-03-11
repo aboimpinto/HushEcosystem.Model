@@ -2,9 +2,9 @@
 
 namespace HushEcosystem.Model.Rpc;
 
-public abstract class CommandRequestBase
+public abstract class RpcRequestBase
 {
-    public string Command { get; set; } = string.Empty;
+    public string RPCMethodId { get; set; } = string.Empty;
 
      public abstract string ToJson(JsonSerializerOptions options);
 }
