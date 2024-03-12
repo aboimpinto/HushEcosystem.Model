@@ -30,7 +30,7 @@ public class SendFeedMessageRequestedDeserializeStrategy : ICommandDeserializeSt
         using (var jsonDocument = JsonDocument.Parse(commandJson))
         {
             var element = jsonDocument.RootElement;
-            var command = element.GetProperty("Command").GetString();
+            var command = element.GetProperty("RPCMethodId").GetString();
 
             if (command == SendFeedMessageRequest.CommandCode)
             {
