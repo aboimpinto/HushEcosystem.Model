@@ -9,6 +9,11 @@ public class FeedsForAddressResponse : RpcResponseBase
 
     public List<FeedDefinition> FeedDefinitions { get; set; }
 
+    public FeedsForAddressResponse()
+    {
+        this.RPCMethodId = CommandCode;
+    }
+
     public override string ToJson(JsonSerializerOptions options)
     {
         return JsonSerializer.Serialize(this, options);
