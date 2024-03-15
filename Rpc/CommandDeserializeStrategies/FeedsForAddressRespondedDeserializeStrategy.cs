@@ -39,13 +39,20 @@ public class FeedsForAddressRespondedDeserializeStrategy : ICommandDeserializeSt
 
     public async Task Handle(string commandJson, string channelId)
     {
-        var command = JsonSerializer.Deserialize<FeedsForAddressResponse>(commandJson);
-
-        if (command == null)
+        try
         {
-            throw new InvalidOperationException($"Cannot deserialize the FeedsForAddressResponse command: {commandJson}");
-        }
+            var command = JsonSerializer.Deserialize<FeedsForAddressResponse>(commandJson);
 
-        await this._eventAggregator.PublishAsync(new FeedsForAddressRespondedEvent(channelId, command));
+            if (command == null)
+            {
+                throw new InvalidOperationException($"Cannot deserialize the FeedsForAddressResponse command: {commandJson}");
+            }
+
+            await this._eventAggregator.PublishAsync(new FeedsForAddressRespondedEvent(channelId, command));
+        }
+        catch(Exception ex)
+        {
+            
+        }
     }
 }

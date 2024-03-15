@@ -8,8 +8,6 @@ public class FeedDefinition
 
     public string Id { get; set; } = string.Empty;
 
-    public VerifiedTransaction FeedTransaction { get; set; }
-
     public string FeedId { get; set; } = string.Empty;
 
     public string FeedTitle { get; set; } = string.Empty;
