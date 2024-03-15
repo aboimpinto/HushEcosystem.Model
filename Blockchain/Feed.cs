@@ -4,7 +4,7 @@ namespace HushEcosystem.Model.Blockchain;
 
 public class Feed : TransactionBase
 {
-    public string TypeCode = "57cb40d4-df4b-488d-bd3a-cf07add608dc";
+    public static string TypeCode = "57cb40d4-df4b-488d-bd3a-cf07add608dc";
 
     public string FeedId { get; set; } = string.Empty;
 
