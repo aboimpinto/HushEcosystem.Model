@@ -39,7 +39,7 @@ public class UserProfileBuilder
     {
         return new UserProfile
         {
-            TransactionId = UserProfile.TypeCode,
+            Id = UserProfile.TypeCode,
             UserPublicSigningAddress = this._publicSigningAddress,
             UserPublicEncryptAddress = this._publicEncryptAddress,
             UserName = string.IsNullOrEmpty(this._userName) ? "Anonymous" : this._userName,

@@ -21,7 +21,7 @@ namespace HushServerNode.Blockchain.Builders
                 Value = 0.5,                                        // TODO: This should be configurable by the network.
                 Token = "HUSH",                                     
                 TimeStamp = DateTime.UtcNow,
-                TransactionId = BlockCreationTransaction.TypeCode
+                Id = BlockCreationTransaction.TypeCode
             };
 
             return transaction;

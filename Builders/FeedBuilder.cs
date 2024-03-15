@@ -45,7 +45,7 @@ public class FeedBuilder
     {
         return new Feed()
         {
-            TransactionId = Feed.TypeCode,
+            Id = Feed.TypeCode,
             FeedId = Guid.NewGuid().ToString(),
             FeedParticipantPublicAddress = this._feedParticipantPublicAddress,
             FeedPublicEncriptAddress = this._publicEncriptAddress,

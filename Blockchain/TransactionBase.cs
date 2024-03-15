@@ -4,7 +4,7 @@ namespace HushEcosystem.Model.Blockchain;
 
 public abstract class TransactionBase : IHashable, ISignable
 {
-    public string TransactionId { get; set; } = string.Empty;
+    public string Id { get; set; } = string.Empty;
 
     public string Issuer { get; set; } = string.Empty;
 

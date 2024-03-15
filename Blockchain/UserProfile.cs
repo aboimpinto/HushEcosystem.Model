@@ -16,7 +16,7 @@ public class UserProfile : TransactionBase
 
     public UserProfile()
     {
-        this.TransactionId = TypeCode;
+        this.Id = TypeCode;
     }
 
     public override string ToJson(JsonSerializerOptions options)
