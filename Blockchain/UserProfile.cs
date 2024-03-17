@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text.Json;
 
 namespace HushEcosystem.Model.Blockchain;
@@ -13,6 +14,8 @@ public class UserProfile : TransactionBase
     public string UserName { get; set; } = string.Empty;
 
     public bool IsPublic { get; set; }
+
+    public List<string> Feeds { get; set; } = new List<string>();
 
     public UserProfile()
     {

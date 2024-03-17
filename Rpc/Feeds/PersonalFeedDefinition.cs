@@ -1,11 +1,10 @@
-using System.Collections.Generic;
 using HushEcosystem.Model.Blockchain;
 
 namespace HushEcosystem.Model.Rpc.Feeds;
 
-public class FeedDefinition
+public class PersonalFeedDefinition : IFeedDefinition
 {
-    public static string CommandId = "d3636955-36bf-4bcc-a20c-71e8226327b5";
+    public static string CommandId = "4e730e78-7eba-4b46-8169-aebee618e28b";
 
     public string Id { get; set; } = string.Empty;
 
@@ -13,16 +12,15 @@ public class FeedDefinition
 
     public string FeedTitle { get; set; } = string.Empty;
 
-    public string FeedOwner { get; set; } = string.Empty;
-
     public FeedTypeEnum FeedType { get; set; }
 
     public double BlockIndex { get; set; }
 
-    public List<string> ParticipantsPulicAddress { get; set; } = new List<string>();
+    public string FeedOwner { get; set; } = string.Empty;
 
-    public FeedDefinition()
+    public PersonalFeedDefinition()
     {
         this.Id = CommandId;
+        this.FeedType = FeedTypeEnum.Personal;
     }
 }

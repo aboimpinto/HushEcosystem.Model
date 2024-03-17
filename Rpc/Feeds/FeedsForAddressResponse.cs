@@ -7,7 +7,7 @@ public class FeedsForAddressResponse : RpcResponseBase
 {
     public static string CommandCode = "58a04403-bf8e-4dd6-b120-b8ad2ab7a5ee";
 
-    public List<FeedDefinition> FeedDefinitions { get; set; }
+    public List<IFeedDefinition> FeedDefinitions { get; set; }
 
     public FeedsForAddressResponse()
     {
