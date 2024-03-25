@@ -39,7 +39,7 @@ public class UserProfileBuilder
     {
         return new UserProfile
         {
-            Id = UserProfile.TypeCode,
+            Id = UserProfile.TransactionGuid,
             Issuer = this._publicSigningAddress,
             UserPublicSigningAddress = this._publicSigningAddress,
             UserPublicEncryptAddress = this._publicEncryptAddress,

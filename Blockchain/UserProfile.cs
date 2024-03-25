@@ -1,11 +1,10 @@
-using System.Collections.Generic;
 using System.Text.Json;
 
 namespace HushEcosystem.Model.Blockchain;
 
 public class UserProfile : TransactionBase
 {
-    public static string TypeCode = "57224bec-62b4-4f80-92e5-12a5546b7a8f";    
+    public static string TransactionGuid = "57224bec-62b4-4f80-92e5-12a5546b7a8f";    
 
     public string UserPublicSigningAddress { get; set; } = string.Empty;
 
@@ -15,11 +14,9 @@ public class UserProfile : TransactionBase
 
     public bool IsPublic { get; set; }
 
-    public List<string> Feeds { get; set; } = new List<string>();
-
     public UserProfile()
     {
-        this.Id = TypeCode;
+        this.Id = TransactionGuid;
     }
 
     public override string ToJson(JsonSerializerOptions options)
